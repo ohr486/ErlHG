@@ -35,3 +35,5 @@ Erlang Hacking Guide
 [Ch01.Erlangのフォルダ構成](./ch01.md)
 
 [Ch02.Erlangビルド時に何が起こっているか](./ch02.md)
+
+[entrypoint](./ch0x.md)
