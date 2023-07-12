@@ -74,6 +74,54 @@ typedef struct {
 } ErtsPTabElementCommon;
 ```
 
+ErtsMessage
+-----------
+
+erts/emulator/beam/erl_message.h
+
+```c
+typedef struct erl_mesg ErtsMessage;
+
+...
+
+#define ERL_MESSAGE_REF_FIELDS__			\
+    ErtsMessage *next;	/* Next message */		\
+    union {						\
+	    ErlHeapFragment *heap_frag;			\
+	    void *attached;					\
+    } data;						\
+    Eterm m[ERL_MESSAGE_REF_ARRAY_SZ]
+
+...
+
+struct erl_mesg {
+    ERL_MESSAGE_REF_FIELDS__;
+
+    ErlHeapFragment hfrag;
+};
+```
+
+ErlHeapFragment
+---------------
+
+erts/emulator/beam/erl_message.h
+
+```c
+/*
+ * This struct represents a heap fragment, which is used when there
+ * isn't sufficient room in the process heap and we can't do a GC.
+ */
+
+typedef struct erl_heap_fragment ErlHeapFragment;
+struct erl_heap_fragment {
+    ErlHeapFragment* next;	/* Next heap fragment */
+    ErlOffHeap off_heap;	/* Offset heap data. */
+    Uint alloc_size;		/* Size in words of mem */
+    Uint used_size;		/* With terms to be moved to heap by GC */
+    Eterm mem[1];		/* Data */
+};
+```
+
 Eterm
 ------
 
