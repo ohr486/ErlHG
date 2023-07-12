@@ -33,7 +33,7 @@ erl_start(int argc, char **argv)
 
 ### erts_start_schedulers
 
-erts/emulator/beam/processes.c
+erts/emulator/beam/erl_process.c
 
 ```c
 void

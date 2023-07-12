@@ -37,3 +37,7 @@ Erlang Hacking Guide
 [Ch02.Erlangビルド時に何が起こっているか](./ch02.md)
 
 [entrypoint](./ch0x.md)
+
+[macro](./ch0y.md)
+
+[data](./ch0z.md)
