@@ -77,7 +77,27 @@ typedef struct {
 Eterm
 ------
 
+erts/emulator/beam/sys.h
 
 ```c
+/*
+** Data types:
+**
+** Eterm: A tagged erlang term (possibly 64 bits)
+...
+*/
+
+#if SIZEOF_VOID_P == SIZEOF_LONG
+typedef unsigned long Eterm erts_align_attribute(sizeof(long));
+...
+#elif SIZEOF_VOID_P == SIZEOF_INT
+typedef unsigned int Eterm erts_align_attribute(sizeof(int));
+...
+#elif SIZEOF_VOID_P == SIZEOF_LONG_LONG
+typedef unsigned long long Eterm erts_align_attribute(sizeof(long long));
+...
+#else
+#error Found no appropriate type to use for 'Eterm', 'Uint' and 'Sint'
+#endif
 ```
 
