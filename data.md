@@ -14,7 +14,7 @@ erts/emulator/beam/erl_process.h
     "Eterm": {"*htop": ""},
     "Eterm": {"*stop": ""},
     "-": "...",
-    "ProcDict": {"*current": ""},
+    "ProcDict": {"*dictionary": ""},
     "-": "...",
     "const ErtsCodeMFA": {"*current": ""},
     "-": "...",
