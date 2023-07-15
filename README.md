@@ -36,6 +36,8 @@ Erlang Hacking Guide
 
 [Ch02.Erlangビルド時に何が起こっているか](./ch02.md)
 
+[makefile](./makefile.md)
+
 [entry](./entry.md)
 
 [macro](./macro.md)
