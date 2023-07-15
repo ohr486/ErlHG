@@ -3,8 +3,8 @@
 ### callstacks
 
 ```plantuml
-title: entrypoint
 @startwbs
+title: entrypoint
 * main @ sys/unix/erl_main.c
 ** sys_init_signal_stack @ sys/unix/sys_signal_stack.c
 ** erl_start @ beam/erl_init.c
