@@ -3,9 +3,28 @@
 
 Process
 -------
-
 erts/emulator/beam/erl_process.h
-
+```plantuml
+@startjson
+#highlight "struct"
+#highlight "ProcDict": "struct"
+{
+    "struct": "process",
+    "ErtsPTabElementCommon": "common",
+    "Eterm": {"*htop": ""},
+    "Eterm": {"*stop": ""},
+    "-": "...",
+    "ProcDict": {"*current": ""},
+    "-": "...",
+    "const ErtsCodeMFA": {"*current": ""},
+    "-": "...",
+    "ErtsMessage": {"*msg_frag": ""},
+    "-": "...",
+    "ErtsSchedulerData": {"*scheduler_data": ""},
+    "-": "..."
+}
+@endjson
+```
 ```c
 struct process {
     ErtsPTabElementCommon common; /* *Need* to be first in struct */
@@ -43,9 +62,43 @@ struct process {
 
 ErtsPTabElementCommon
 ---------------------
-
 erts/emulator/beam/erl_ptab.h
-
+```plantuml
+@startjson
+#highlight "struct"
+#highlight "union" / "0" / "struct"
+{
+    "struct": "ErtsPTabElementCommon",
+    "Eterm": "id",
+    "union": [ 
+            {
+                "refc": "",
+                "erts_atomic_t": "atmc"
+            },
+            {
+                "refc": "",
+                "Sint": "sint"
+            }
+    ],
+    "erts_atomic_t": "timer",
+    "union": [{
+        "u": "",
+        "struct": "alive",
+        "Uint64": "started_interval",
+        "struct reg_proc": {"*reg": ""},
+        "ErtsLink": {"*links": ""},
+        "ErtsMonitor": {"*lt_monitors": ""},
+        "ErtsMonitor": {"*monitors": ""}
+    },
+    {
+        "u": "",
+        "ErtsThrPrgrLaterOp": "release"
+    }],
+    "ErtsTracer": "tracer",
+    "Uint32": "trace_flags"
+}
+@endjson
+```
 ```c
 typedef struct {
     Eterm id;
@@ -76,9 +129,30 @@ typedef struct {
 
 ErtsMessage
 -----------
-
 erts/emulator/beam/erl_message.h
-
+```plantuml
+@startjson
+#highlight "struct"
+#highlight "ErtsMessage" / "struct"
+#highlight "ErlHeapFragment" / "struct"
+{
+    "struct": "ErtsMessage",
+    "ErtsMessage": {"*next": ""},
+    "union": [
+        {
+            "data": "",
+            "ErlHeapFragment": {"*heap_frag": ""}
+        },
+        {
+            "data": "",
+            "void": {"*attached": ""}
+        }
+    ],
+    "Eterm": "m[ERL_MESSAGE_REF_ARRAY_SZ]",
+    "ErlHeapFragment": "heap_frag"
+}
+@endjson
+```
 ```c
 typedef struct erl_mesg ErtsMessage;
 
@@ -103,9 +177,20 @@ struct erl_mesg {
 
 ErlHeapFragment
 ---------------
-
 erts/emulator/beam/erl_message.h
-
+```plantuml
+@startjson
+#highlight "struct"
+{
+    "struct": "ErlHeapFragment",
+    "ErlHeapFragment": {"*next": ""},
+    "ErlOffHeap": "off_heap",
+    "Uint": "alloc_size",
+    "Uint": "used_size",
+    "Eterm": "mem[1]"
+}
+@endjson
+```
 ```c
 /*
  * This struct represents a heap fragment, which is used when there
