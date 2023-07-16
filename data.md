@@ -72,17 +72,17 @@ erts/emulator/beam/erl_ptab.h
     "Eterm": "id",
     "union": [ 
             {
-                "refc": "",
+                "refc.atmc": "",
                 "erts_atomic_t": "atmc"
             },
             {
-                "refc": "",
+                "refc.sint": "",
                 "Sint": "sint"
             }
     ],
     "erts_atomic_t": "timer",
     "union": [{
-        "u": "",
+        "u.alive": "",
         "struct": "alive",
         "Uint64": "started_interval",
         "struct reg_proc": {"*reg": ""},
@@ -91,7 +91,7 @@ erts/emulator/beam/erl_ptab.h
         "ErtsMonitor": {"*monitors": ""}
     },
     {
-        "u": "",
+        "u.release": "",
         "ErtsThrPrgrLaterOp": "release"
     }],
     "ErtsTracer": "tracer",
@@ -140,11 +140,11 @@ erts/emulator/beam/erl_message.h
     "ErtsMessage": {"*next": ""},
     "union": [
         {
-            "data": "",
+            "data.heap_flag": "",
             "ErlHeapFragment": {"*heap_frag": ""}
         },
         {
-            "data": "",
+            "data.attached": "",
             "void": {"*attached": ""}
         }
     ],
