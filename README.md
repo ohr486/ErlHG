@@ -1,8 +1,6 @@
-Erlang Hacking Guide
-====================
+# Erlang Hacking Guide
 
-本文章について
---------------
+## 本文章について
 
 本文章は[Rubyソースコード完全解説(RHG)](http://i.loveruby.net/ja/rhg/book/)にインスパイアされて作成しました。
 
@@ -23,18 +21,25 @@ Erlang Hacking Guide
 
 です。
 
-本文章の構成について
---------------------
+## 本文章の構成について
 
 本文章は以下の章から構成されます。
 
-### Erlangのビルド
+## 準備
 
 [Ch00.事前準備](./ch00.md)
 
-[Ch01.Erlangのフォルダ構成](./ch01.md)
+[Ch01.Erlangのフォルダ構成]()
 
-[Ch02.Erlangビルド時に何が起こっているか](./ch02.md)
+[Ch0x.Makefileの必要な知識]()
+
+[Ch0x.erlコマンド実行の裏側]()
+
+## Erlangのコンパイル
+
+[Ch0x.Erlangのコンパイル]()
+
+[Ch0x.Erlangのコンパイルオプション]()
 
 [makefile](./makefile.md)
 
